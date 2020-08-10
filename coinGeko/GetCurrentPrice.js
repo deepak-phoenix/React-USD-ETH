@@ -37,6 +37,7 @@ class GetCurrentPrice extends Component {
           title="Reload price"
           onPress={() => {
             this.setState({ price: 0, loading: true });
+            this.fetchData();
           }}
         />
       </View>
@@ -44,6 +45,10 @@ class GetCurrentPrice extends Component {
   }
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
     fetch(
       url +
         "simple/price?ids=ethereum&vs_currencies=usd&include_last_updated_at=true"

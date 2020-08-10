@@ -65,6 +65,7 @@ class GetPastData extends Component {
           title="reload chart"
           onPress={() => {
             this.setState({ loading: true, priceData: [], timeData: [] });
+            this.fetchData();
           }}
         />
       </View>
@@ -72,6 +73,10 @@ class GetPastData extends Component {
   }
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
     localTimeData = [];
     localPriceData = [];
     localFinalPrice = [];
